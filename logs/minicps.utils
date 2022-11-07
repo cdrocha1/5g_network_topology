@@ -1,0 +1,61 @@
+2022-11-01 17:06:50,927 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "plc2.py", line 62, in <module>
+    disk=PLC2_DATA)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-11-01 17:06:50,937 - mininet - DEBUG - 
+2022-11-01 17:06:50,937 - mininet - DEBUG - *** s1 : ('ip link del s1-eth2',)
+
+2022-11-01 17:06:50,956 - mininet - DEBUG - Cannot find device "s1-eth2"
+
+2022-11-01 17:06:50,956 - mininet - DEBUG - 
+2022-11-01 17:06:50,956 - mininet - INFO - .
+2022-11-01 17:06:50,956 - mininet - DEBUG - *** plc3 : ('ip link del plc3-eth0',)
+
+2022-11-01 17:06:50,957 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "plc3.py", line 60, in <module>
+    disk=PLC3_DATA)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-11-01 17:06:50,965 - mininet - DEBUG - 
+2022-11-01 17:06:50,965 - mininet - DEBUG - *** s1 : ('ip link del s1-eth3',)
+
+2022-11-01 17:06:50,983 - mininet - DEBUG - Cannot find device "s1-eth3"
+
+2022-11-01 17:06:50,983 - mininet - DEBUG - 
+2022-11-01 17:06:50,984 - mininet - INFO - 
+
+2022-11-01 17:06:50,984 - mininet - INFO - *** Stopping 1 switches
+
+2022-11-01 17:06:50,984 - mininet - DEBUG - *** errRun: ['ovs-vsctl', '--if-exists', 'del-br', 's1'] 
+
+2022-11-01 17:06:51,029 - mininet - DEBUG -   0
+2022-11-01 17:06:51,030 - mininet - DEBUG - *** errRun: ['kill', '-HUP', '5176'] 
+
+2022-11-01 17:06:51,037 - mininet - DEBUG -   0
+2022-11-01 17:06:51,037 - mininet - INFO - s1 
+2022-11-01 17:06:51,037 - mininet - INFO - 
+
+2022-11-01 17:06:51,037 - mininet - INFO - *** Stopping 4 hosts
+
+2022-11-01 17:06:51,038 - mininet - INFO - attacker 
+2022-11-01 17:06:51,038 - mininet - INFO - plc1 
+2022-11-01 17:06:51,038 - mininet - INFO - plc2 
+2022-11-01 17:06:51,039 - mininet - INFO - plc3 
+2022-11-01 17:06:51,039 - mininet - INFO - 
+*** Done
+

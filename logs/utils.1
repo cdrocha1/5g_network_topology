@@ -1,0 +1,223 @@
+2022-11-01 17:06:43,547 - mininet - DEBUG - 64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=1018 ms
+
+--- 192.168.1.10 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1018.907/1018.907/1018.907/0.000 ms
+
+2022-11-01 17:06:43,548 - mininet - DEBUG - 
+2022-11-01 17:06:43,548 - mininet - Level 25 - plc1 
+2022-11-01 17:06:43,548 - mininet - DEBUG - *** attacker : ('ping -c1  192.168.1.20',)
+
+2022-11-01 17:06:43,549 - mininet - DEBUG - PING 192.168.1.20 (192.168.1.20) 56(84) bytes of data.
+
+2022-11-01 17:06:43,549 - mininet - DEBUG - 64 bytes from 192.168.1.20: icmp_seq=1 ttl=64 time=0.662 ms
+
+--- 192.168.1.20 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.662/0.662/0.662/0.000 ms
+
+2022-11-01 17:06:43,550 - mininet - DEBUG - 
+2022-11-01 17:06:43,550 - mininet - Level 25 - plc2 
+2022-11-01 17:06:43,550 - mininet - DEBUG - *** attacker : ('ping -c1  192.168.1.30',)
+
+2022-11-01 17:06:43,550 - mininet - DEBUG - PING 192.168.1.30 (192.168.1.30) 56(84) bytes of data.
+2022-11-01 17:06:43,551 - mininet - DEBUG - 
+
+2022-11-01 17:06:43,554 - mininet - DEBUG - 64 bytes from 192.168.1.30: icmp_seq=1 ttl=64 time=3.13 ms
+
+--- 192.168.1.30 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 3.133/3.133/3.133/0.000 ms
+
+2022-11-01 17:06:43,554 - mininet - DEBUG - 
+2022-11-01 17:06:43,554 - mininet - Level 25 - plc3 
+2022-11-01 17:06:43,554 - mininet - Level 25 - 
+
+2022-11-01 17:06:43,554 - mininet - Level 25 - plc1 -> 
+2022-11-01 17:06:43,554 - mininet - DEBUG - *** plc1 : ('ping -c1  192.168.1.77',)
+
+2022-11-01 17:06:43,555 - mininet - DEBUG - PING 192.168.1.77 (192.168.1.77) 56(84) bytes of data.
+
+2022-11-01 17:06:43,556 - mininet - DEBUG - 64 bytes from 192.168.1.77: icmp_seq=1 ttl=64 time=0.524 ms
+
+--- 192.168.1.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.524/0.524/0.524/0.000 ms
+
+2022-11-01 17:06:43,556 - mininet - Level 25 - attacker 
+2022-11-01 17:06:43,556 - mininet - DEBUG - *** plc1 : ('ping -c1  192.168.1.20',)
+
+2022-11-01 17:06:43,556 - mininet - DEBUG - PING 192.168.1.20 (192.168.1.20) 56(84) bytes of data.
+
+2022-11-01 17:06:43,560 - mininet - DEBUG - 64 bytes from 192.168.1.20: icmp_seq=1 ttl=64 time=3.88 ms
+
+--- 192.168.1.20 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 3.886/3.886/3.886/0.000 ms
+
+2022-11-01 17:06:43,560 - mininet - DEBUG - 
+2022-11-01 17:06:43,561 - mininet - Level 25 - plc2 
+2022-11-01 17:06:43,561 - mininet - DEBUG - *** plc1 : ('ping -c1  192.168.1.30',)
+
+2022-11-01 17:06:43,561 - mininet - DEBUG - PING 192.168.1.30 (192.168.1.30) 56(84) bytes of data.
+
+2022-11-01 17:06:43,564 - mininet - DEBUG - 64 bytes from 192.168.1.30: icmp_seq=1 ttl=64 time=2.18 ms
+
+--- 192.168.1.30 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.180/2.180/2.180/0.000 ms
+
+2022-11-01 17:06:43,564 - mininet - DEBUG - 
+2022-11-01 17:06:43,564 - mininet - Level 25 - plc3 
+2022-11-01 17:06:43,564 - mininet - Level 25 - 
+
+2022-11-01 17:06:43,564 - mininet - Level 25 - plc2 -> 
+2022-11-01 17:06:43,564 - mininet - DEBUG - *** plc2 : ('ping -c1  192.168.1.77',)
+
+2022-11-01 17:06:43,565 - mininet - DEBUG - PING 192.168.1.77 (192.168.1.77) 56(84) bytes of data.
+
+2022-11-01 17:06:43,565 - mininet - DEBUG - 64 bytes from 192.168.1.77: icmp_seq=1 ttl=64 time=0.424 ms
+
+--- 192.168.1.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.424/0.424/0.424/0.000 ms
+
+2022-11-01 17:06:43,565 - mininet - Level 25 - attacker 
+2022-11-01 17:06:43,565 - mininet - DEBUG - *** plc2 : ('ping -c1  192.168.1.10',)
+
+2022-11-01 17:06:43,566 - mininet - DEBUG - PING 192.168.1.10 (192.168.1.10) 56(84) bytes of data.
+
+2022-11-01 17:06:43,566 - mininet - DEBUG - 64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=0.388 ms
+
+--- 192.168.1.10 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.388/0.388/0.388/0.000 ms
+
+2022-11-01 17:06:43,566 - mininet - DEBUG - 
+2022-11-01 17:06:43,566 - mininet - Level 25 - plc1 
+2022-11-01 17:06:43,566 - mininet - DEBUG - *** plc2 : ('ping -c1  192.168.1.30',)
+
+2022-11-01 17:06:43,567 - mininet - DEBUG - PING 192.168.1.30 (192.168.1.30) 56(84) bytes of data.
+
+2022-11-01 17:06:43,569 - mininet - DEBUG - 64 bytes from 192.168.1.30: icmp_seq=1 ttl=64 time=1.93 ms
+
+--- 192.168.1.30 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.934/1.934/1.934/0.000 ms
+
+2022-11-01 17:06:43,569 - mininet - DEBUG - 
+2022-11-01 17:06:43,569 - mininet - Level 25 - plc3 
+2022-11-01 17:06:43,569 - mininet - Level 25 - 
+
+2022-11-01 17:06:43,569 - mininet - Level 25 - plc3 -> 
+2022-11-01 17:06:43,569 - mininet - DEBUG - *** plc3 : ('ping -c1  192.168.1.77',)
+
+2022-11-01 17:06:43,570 - mininet - DEBUG - PING 192.168.1.77 (192.168.1.77) 56(84) bytes of data.
+
+2022-11-01 17:06:43,570 - mininet - DEBUG - 64 bytes from 192.168.1.77: icmp_seq=1 ttl=64 time=0.466 ms
+
+--- 192.168.1.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.466/0.466/0.466/0.000 ms
+
+2022-11-01 17:06:43,571 - mininet - Level 25 - attacker 
+2022-11-01 17:06:43,571 - mininet - DEBUG - *** plc3 : ('ping -c1  192.168.1.10',)
+
+2022-11-01 17:06:43,571 - mininet - DEBUG - PING 192.168.1.10 (192.168.1.10) 56(84) bytes of data.
+
+2022-11-01 17:06:43,572 - mininet - DEBUG - 64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=0.371 ms
+
+--- 192.168.1.10 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.371/0.371/0.371/0.000 ms
+
+2022-11-01 17:06:43,572 - mininet - Level 25 - plc1 
+2022-11-01 17:06:43,572 - mininet - DEBUG - *** plc3 : ('ping -c1  192.168.1.20',)
+
+2022-11-01 17:06:43,572 - mininet - DEBUG - PING 192.168.1.20 (192.168.1.20) 56(84) bytes of data.
+
+2022-11-01 17:06:43,573 - mininet - DEBUG - 64 bytes from 192.168.1.20: icmp_seq=1 ttl=64 time=1.04 ms
+
+--- 192.168.1.20 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.040/1.040/1.040/0.000 ms
+
+2022-11-01 17:06:43,574 - mininet - Level 25 - plc2 
+2022-11-01 17:06:43,574 - mininet - Level 25 - 
+
+2022-11-01 17:06:43,574 - mininet - Level 25 - *** Results: 0% dropped (12/12 received)
+
+2022-11-01 17:06:43,574 - mininet - DEBUG - *** plc2 : ('/usr/bin/python plc2.py &',)
+
+2022-11-01 17:06:43,579 - mininet - DEBUG - 
+2022-11-01 17:06:43,580 - mininet - DEBUG - *** plc3 : ('/usr/bin/python plc3.py &',)
+
+2022-11-01 17:06:43,581 - mininet - DEBUG - 
+2022-11-01 17:06:43,581 - mininet - DEBUG - *** plc1 : ('/usr/bin/python plc1.py &',)
+
+2022-11-01 17:06:43,585 - mininet - DEBUG - 
+2022-11-01 17:06:43,585 - mininet - DEBUG - *** s1 : ('/usr/bin/python physical_process.py &',)
+
+2022-11-01 17:06:43,590 - mininet - DEBUG - 
+2022-11-01 17:06:43,593 - mininet - INFO - *** Starting CLI:
+
+2022-11-01 17:06:43,600 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-11-01 17:06:43,601 - mininet - DEBUG -   0
+2022-11-01 17:06:50,871 - mininet - INFO - *** Stopping 1 controllers
+
+2022-11-01 17:06:50,871 - mininet - INFO - c0 
+2022-11-01 17:06:50,871 - mininet - DEBUG - *** c0 : ('kill %controller',)
+
+2022-11-01 17:06:50,871 - mininet - DEBUG - 
+2022-11-01 17:06:50,871 - mininet - DEBUG - *** c0 : ('wait %controller',)
+
+2022-11-01 17:06:50,872 - mininet - DEBUG - 
+2022-11-01 17:06:50,872 - mininet - INFO - 
+
+2022-11-01 17:06:50,872 - mininet - INFO - *** Stopping 4 links
+
+2022-11-01 17:06:50,872 - mininet - INFO - .
+2022-11-01 17:06:50,872 - mininet - DEBUG - *** attacker : ('ip link del attacker-eth0',)
+
+2022-11-01 17:06:50,885 - mininet - DEBUG - 
+2022-11-01 17:06:50,885 - mininet - DEBUG - *** s1 : ('ip link del s1-eth4',)
+
+2022-11-01 17:06:50,885 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "physical_process.py", line 111, in <module>
+    level=RWT_INIT_LEVEL
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 374, in __init__
+    super(Tank, self).__init__(name, protocol, state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-11-01 17:06:50,897 - mininet - DEBUG - Cannot find device "s1-eth4"
+
+2022-11-01 17:06:50,899 - mininet - DEBUG - 
+2022-11-01 17:06:50,899 - mininet - INFO - .
+2022-11-01 17:06:50,899 - mininet - DEBUG - *** plc1 : ('ip link del plc1-eth0',)
+
+2022-11-01 17:06:50,899 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "plc1.py", line 120, in <module>
+    disk=PLC1_DATA)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-11-01 17:06:50,909 - mininet - DEBUG - 
+2022-11-01 17:06:50,909 - mininet - DEBUG - *** s1 : ('ip link del s1-eth1',)
+
+2022-11-01 17:06:50,926 - mininet - DEBUG - Cannot find device "s1-eth1"
+
+2022-11-01 17:06:50,926 - mininet - DEBUG - 

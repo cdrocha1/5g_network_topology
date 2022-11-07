@@ -1,0 +1,436 @@
+2022-10-30 21:45:32,127 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'down')
+
+2022-10-30 21:45:32,130 - mininet - DEBUG - 
+2022-10-30 21:45:32,130 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'hw', 'ether', '00:1D:9C:C7:B0:70')
+
+2022-10-30 21:45:32,130 - mininet - DEBUG - 
+2022-10-30 21:45:32,130 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'up')
+
+2022-10-30 21:45:32,133 - mininet - DEBUG - 
+2022-10-30 21:45:32,133 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', '192.168.1.10/24', 'up')
+
+2022-10-30 21:45:32,133 - mininet - DEBUG - 
+2022-10-30 21:45:32,133 - mininet - DEBUG - *** plc1 : ('ifconfig lo up',)
+
+2022-10-30 21:45:32,134 - mininet - DEBUG - 
+2022-10-30 21:45:32,134 - mininet - INFO - plc2 
+2022-10-30 21:45:32,134 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'down')
+
+2022-10-30 21:45:32,136 - mininet - DEBUG - 
+2022-10-30 21:45:32,137 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'hw', 'ether', '00:1D:9C:C8:BC:46')
+
+2022-10-30 21:45:32,137 - mininet - DEBUG - 
+2022-10-30 21:45:32,137 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'up')
+
+2022-10-30 21:45:32,140 - mininet - DEBUG - 
+2022-10-30 21:45:32,140 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', '192.168.1.20/24', 'up')
+
+2022-10-30 21:45:32,140 - mininet - DEBUG - 
+2022-10-30 21:45:32,141 - mininet - DEBUG - *** plc2 : ('ifconfig lo up',)
+
+2022-10-30 21:45:32,141 - mininet - DEBUG - 
+2022-10-30 21:45:32,141 - mininet - INFO - plc3 
+2022-10-30 21:45:32,141 - mininet - DEBUG - *** plc3 : ('ifconfig', 'plc3-eth0', 'down')
+
+2022-10-30 21:45:32,146 - mininet - DEBUG - 
+2022-10-30 21:45:32,147 - mininet - DEBUG - *** plc3 : ('ifconfig', 'plc3-eth0', 'hw', 'ether', '00:1D:9C:C8:BD:F2')
+
+2022-10-30 21:45:32,148 - mininet - DEBUG - 
+2022-10-30 21:45:32,148 - mininet - DEBUG - *** plc3 : ('ifconfig', 'plc3-eth0', 'up')
+
+2022-10-30 21:45:32,150 - mininet - DEBUG - 
+2022-10-30 21:45:32,151 - mininet - DEBUG - *** plc3 : ('ifconfig', 'plc3-eth0', '192.168.1.30/24', 'up')
+
+2022-10-30 21:45:32,151 - mininet - DEBUG - 
+2022-10-30 21:45:32,151 - mininet - DEBUG - *** plc3 : ('ifconfig lo up',)
+
+2022-10-30 21:45:32,152 - mininet - DEBUG - 
+2022-10-30 21:45:32,153 - mininet - INFO - 
+
+2022-10-30 21:45:32,153 - mininet - INFO - *** Starting controller
+
+2022-10-30 21:45:32,154 - mininet - INFO - c0 
+2022-10-30 21:45:32,155 - mininet - DEBUG - *** errRun: ['which', 'controller'] 
+
+2022-10-30 21:45:32,160 - mininet - DEBUG - /usr/local/bin/controller
+  0
+2022-10-30 21:45:32,161 - mininet - DEBUG - *** c0 : ('controller ptcp:6653 1>/tmp/c0.log 2>/tmp/c0.log &',)
+
+2022-10-30 21:45:32,162 - mininet - DEBUG - 
+2022-10-30 21:45:32,163 - mininet - INFO - 
+
+2022-10-30 21:45:32,163 - mininet - INFO - *** Starting 1 switches
+
+2022-10-30 21:45:32,163 - mininet - INFO - s1 
+2022-10-30 21:45:32,163 - mininet - INFO - ...
+2022-10-30 21:45:32,167 - mininet - DEBUG - *** errRun: ovs-vsctl -- --id=@s1c0 create Controller target=\"tcp:127.0.0.1:6653\" max_backoff=1000 -- --if-exists del-br s1 -- add-br s1 -- set bridge s1 controller=[@s1c0] other_config:datapath-id=0000000000000001 fail_mode=secure other-config:disable-in-band=true other-config:dp-desc=s1 -- add-port s1 s1-eth1 -- set Interface s1-eth1 ofport_request=1 -- add-port s1 s1-eth2 -- set Interface s1-eth2 ofport_request=2 -- add-port s1 s1-eth3 -- set Interface s1-eth3 ofport_request=3 -- add-port s1 s1-eth4 -- set Interface s1-eth4 ofport_request=4 
+
+2022-10-30 21:45:32,219 - mininet - DEBUG - 662d0c07-0eb9-4dd3-b6df-7fff79e02c1f
+  0
+2022-10-30 21:45:32,219 - mininet - INFO - 
+
+2022-10-30 21:45:32,219 - mininet - Level 25 - *** Ping: testing ping reachability
+
+2022-10-30 21:45:32,219 - mininet - Level 25 - attacker -> 
+2022-10-30 21:45:32,219 - mininet - DEBUG - *** attacker : ('ping -c1  192.168.1.10',)
+
+2022-10-30 21:45:32,221 - mininet - DEBUG - PING 192.168.1.10 (192.168.1.10) 56(84) bytes of data.
+
+2022-10-30 21:45:32,223 - mininet - DEBUG - 64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=2.15 ms
+
+--- 192.168.1.10 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.157/2.157/2.157/0.000 ms
+
+2022-10-30 21:45:32,224 - mininet - Level 25 - plc1 
+2022-10-30 21:45:32,224 - mininet - DEBUG - *** attacker : ('ping -c1  192.168.1.20',)
+
+2022-10-30 21:45:32,224 - mininet - DEBUG - PING 192.168.1.20 (192.168.1.20) 56(84) bytes of data.
+
+2022-10-30 21:45:32,227 - mininet - DEBUG - 64 bytes from 192.168.1.20: icmp_seq=1 ttl=64 time=2.97 ms
+
+--- 192.168.1.20 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.975/2.975/2.975/0.000 ms
+
+2022-10-30 21:45:32,228 - mininet - Level 25 - plc2 
+2022-10-30 21:45:32,228 - mininet - DEBUG - *** attacker : ('ping -c1  192.168.1.30',)
+
+2022-10-30 21:45:32,228 - mininet - DEBUG - PING 192.168.1.30 (192.168.1.30) 56(84) bytes of data.
+2022-10-30 21:45:32,229 - mininet - DEBUG - 
+
+2022-10-30 21:45:32,236 - mininet - DEBUG - 64 bytes from 192.168.1.30: icmp_seq=1 ttl=64 time=7.20 ms
+
+--- 192.168.1.30 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 7.203/7.203/7.203/0.000 ms
+
+2022-10-30 21:45:32,236 - mininet - Level 25 - plc3 
+2022-10-30 21:45:32,236 - mininet - Level 25 - 
+
+2022-10-30 21:45:32,236 - mininet - Level 25 - plc1 -> 
+2022-10-30 21:45:32,236 - mininet - DEBUG - *** plc1 : ('ping -c1  192.168.1.77',)
+
+2022-10-30 21:45:32,237 - mininet - DEBUG - PING 192.168.1.77 (192.168.1.77) 56(84) bytes of data.
+
+2022-10-30 21:45:32,238 - mininet - DEBUG - 64 bytes from 192.168.1.77: icmp_seq=1 ttl=64 time=0.939 ms
+
+--- 192.168.1.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.939/0.939/0.939/0.000 ms
+
+2022-10-30 21:45:32,238 - mininet - Level 25 - attacker 
+2022-10-30 21:45:32,238 - mininet - DEBUG - *** plc1 : ('ping -c1  192.168.1.20',)
+
+2022-10-30 21:45:32,239 - mininet - DEBUG - PING 192.168.1.20 (192.168.1.20) 56(84) bytes of data.
+
+2022-10-30 21:45:32,243 - mininet - DEBUG - 64 bytes from 192.168.1.20: icmp_seq=1 ttl=64 time=3.60 ms
+
+--- 192.168.1.20 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 3.602/3.602/3.602/0.000 ms
+
+2022-10-30 21:45:32,243 - mininet - Level 25 - plc2 
+2022-10-30 21:45:32,243 - mininet - DEBUG - *** plc1 : ('ping -c1  192.168.1.30',)
+
+2022-10-30 21:45:32,243 - mininet - DEBUG - PING 192.168.1.30 (192.168.1.30) 56(84) bytes of data.
+
+2022-10-30 21:45:32,244 - mininet - DEBUG - 64 bytes from 192.168.1.30: icmp_seq=1 ttl=64 time=0.891 ms
+
+--- 192.168.1.30 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.891/0.891/0.891/0.000 ms
+
+2022-10-30 21:45:32,245 - mininet - Level 25 - plc3 
+2022-10-30 21:45:32,245 - mininet - Level 25 - 
+
+2022-10-30 21:45:32,245 - mininet - Level 25 - plc2 -> 
+2022-10-30 21:45:32,245 - mininet - DEBUG - *** plc2 : ('ping -c1  192.168.1.77',)
+
+2022-10-30 21:45:32,245 - mininet - DEBUG - PING 192.168.1.77 (192.168.1.77) 56(84) bytes of data.
+
+2022-10-30 21:45:32,246 - mininet - DEBUG - 64 bytes from 192.168.1.77: icmp_seq=1 ttl=64 time=0.521 ms
+
+--- 192.168.1.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.521/0.521/0.521/0.000 ms
+
+2022-10-30 21:45:32,246 - mininet - Level 25 - attacker 
+2022-10-30 21:45:32,246 - mininet - DEBUG - *** plc2 : ('ping -c1  192.168.1.10',)
+
+2022-10-30 21:45:32,247 - mininet - DEBUG - PING 192.168.1.10 (192.168.1.10) 56(84) bytes of data.
+
+2022-10-30 21:45:32,251 - mininet - DEBUG - 64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=4.02 ms
+
+--- 192.168.1.10 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 4.029/4.029/4.029/0.000 ms
+
+2022-10-30 21:45:32,252 - mininet - Level 25 - plc1 
+2022-10-30 21:45:32,252 - mininet - DEBUG - *** plc2 : ('ping -c1  192.168.1.30',)
+
+2022-10-30 21:45:32,252 - mininet - DEBUG - PING 192.168.1.30 (192.168.1.30) 56(84) bytes of data.
+
+2022-10-30 21:45:32,253 - mininet - DEBUG - 64 bytes from 192.168.1.30: icmp_seq=1 ttl=64 time=0.622 ms
+
+--- 192.168.1.30 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.622/0.622/0.622/0.000 ms
+
+2022-10-30 21:45:32,253 - mininet - Level 25 - plc3 
+2022-10-30 21:45:32,253 - mininet - Level 25 - 
+
+2022-10-30 21:45:32,254 - mininet - Level 25 - plc3 -> 
+2022-10-30 21:45:32,254 - mininet - DEBUG - *** plc3 : ('ping -c1  192.168.1.77',)
+
+2022-10-30 21:45:32,254 - mininet - DEBUG - PING 192.168.1.77 (192.168.1.77) 56(84) bytes of data.
+
+2022-10-30 21:45:32,255 - mininet - DEBUG - 64 bytes from 192.168.1.77: icmp_seq=1 ttl=64 time=0.455 ms
+
+--- 192.168.1.77 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.455/0.455/0.455/0.000 ms
+
+2022-10-30 21:45:32,255 - mininet - Level 25 - attacker 
+2022-10-30 21:45:32,255 - mininet - DEBUG - *** plc3 : ('ping -c1  192.168.1.10',)
+
+2022-10-30 21:45:32,256 - mininet - DEBUG - PING 192.168.1.10 (192.168.1.10) 56(84) bytes of data.
+
+2022-10-30 21:45:32,257 - mininet - DEBUG - 64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=1.11 ms
+
+--- 192.168.1.10 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.112/1.112/1.112/0.000 ms
+
+2022-10-30 21:45:32,257 - mininet - Level 25 - plc1 
+2022-10-30 21:45:32,258 - mininet - DEBUG - *** plc3 : ('ping -c1  192.168.1.20',)
+
+2022-10-30 21:45:32,258 - mininet - DEBUG - PING 192.168.1.20 (192.168.1.20) 56(84) bytes of data.
+
+2022-10-30 21:45:32,259 - mininet - DEBUG - 64 bytes from 192.168.1.20: icmp_seq=1 ttl=64 time=0.406 ms
+
+--- 192.168.1.20 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.406/0.406/0.406/0.000 ms
+
+2022-10-30 21:45:32,259 - mininet - Level 25 - plc2 
+2022-10-30 21:45:32,259 - mininet - Level 25 - 
+
+2022-10-30 21:45:32,259 - mininet - Level 25 - *** Results: 0% dropped (12/12 received)
+
+2022-10-30 21:45:32,259 - mininet - DEBUG - *** plc2 : ('/usr/bin/python plc2.py &',)
+
+2022-10-30 21:45:32,263 - mininet - DEBUG - 
+2022-10-30 21:45:32,263 - mininet - DEBUG - *** plc3 : ('/usr/bin/python plc3.py &',)
+
+2022-10-30 21:45:32,268 - mininet - DEBUG - 
+2022-10-30 21:45:32,268 - mininet - DEBUG - *** plc1 : ('/usr/bin/python plc1.py &',)
+
+2022-10-30 21:45:32,283 - mininet - DEBUG - 
+2022-10-30 21:45:32,288 - mininet - DEBUG - *** s1 : ('/usr/bin/python physical_process.py &',)
+
+2022-10-30 21:45:32,293 - mininet - DEBUG - 
+2022-10-30 21:45:32,294 - mininet - INFO - *** Starting CLI:
+
+2022-10-30 21:45:32,297 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-10-30 21:45:32,303 - mininet - DEBUG -   0
+2022-10-30 21:52:45,179 - mininet - Level 25 - 
+Interrupt
+
+2022-10-30 21:52:45,180 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-10-30 21:52:45,181 - mininet - DEBUG -   0
+2022-10-30 21:52:46,657 - mininet - INFO - *** Stopping 1 controllers
+
+2022-10-30 21:52:46,657 - mininet - INFO - c0 
+2022-10-30 21:52:46,657 - mininet - DEBUG - *** c0 : ('kill %controller',)
+
+2022-10-30 21:52:46,660 - mininet - DEBUG - 
+2022-10-30 21:52:46,660 - mininet - DEBUG - *** c0 : ('wait %controller',)
+
+2022-10-30 21:52:46,661 - mininet - DEBUG - bash: wait: %controller: no such job
+
+2022-10-30 21:52:46,661 - mininet - INFO - 
+
+2022-10-30 21:52:46,661 - mininet - INFO - *** Stopping 4 links
+
+2022-10-30 21:52:46,661 - mininet - INFO - .
+2022-10-30 21:52:46,661 - mininet - DEBUG - *** attacker : ('ip link del attacker-eth0',)
+
+2022-10-30 21:52:46,677 - mininet - DEBUG - 
+2022-10-30 21:52:46,677 - mininet - DEBUG - *** s1 : ('ip link del s1-eth4',)
+
+2022-10-30 21:52:46,677 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "physical_process.py", line 111, in <module>
+    level=RWT_INIT_LEVEL
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 374, in __init__
+    super(Tank, self).__init__(name, protocol, state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-10-30 21:52:46,694 - mininet - DEBUG - Cannot find device "s1-eth4"
+
+2022-10-30 21:52:46,695 - mininet - DEBUG - 
+2022-10-30 21:52:46,695 - mininet - INFO - .
+2022-10-30 21:52:46,695 - mininet - DEBUG - *** plc1 : ('ip link del plc1-eth0',)
+
+2022-10-30 21:52:46,695 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "plc1.py", line 120, in <module>
+    disk=PLC1_DATA)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-10-30 21:52:46,705 - mininet - DEBUG - 
+2022-10-30 21:52:46,705 - mininet - DEBUG - *** s1 : ('ip link del s1-eth1',)
+
+2022-10-30 21:52:46,720 - mininet - DEBUG - Cannot find device "s1-eth1"
+
+2022-10-30 21:52:46,720 - mininet - DEBUG - 
+2022-10-30 21:52:46,720 - mininet - INFO - .
+2022-10-30 21:52:46,720 - mininet - DEBUG - *** plc2 : ('ip link del plc2-eth0',)
+
+2022-10-30 21:52:46,720 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "plc2.py", line 62, in <module>
+    disk=PLC2_DATA)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-10-30 21:52:46,729 - mininet - DEBUG - 
+2022-10-30 21:52:46,729 - mininet - DEBUG - *** s1 : ('ip link del s1-eth2',)
+
+2022-10-30 21:52:46,750 - mininet - DEBUG - Cannot find device "s1-eth2"
+
+2022-10-30 21:52:46,750 - mininet - DEBUG - 
+2022-10-30 21:52:46,750 - mininet - INFO - .
+2022-10-30 21:52:46,750 - mininet - DEBUG - *** plc3 : ('ip link del plc3-eth0',)
+
+2022-10-30 21:52:46,750 - mininet - DEBUG - ERROR: please provide at least 1 primary key
+Traceback (most recent call last):
+  File "plc3.py", line 60, in <module>
+    disk=PLC3_DATA)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 96, in __init__
+    self._init_state()
+  File "/usr/local/lib/python2.7/dist-packages/minicps/devices.py", line 175, in _init_state
+    self._state = SQLiteState(self.state)
+  File "/usr/local/lib/python2.7/dist-packages/minicps/states.py", line 97, in __init__
+    raise ValueError('Primary key not found.')
+ValueError: Primary key not found.
+
+2022-10-30 21:52:46,765 - mininet - DEBUG - 
+2022-10-30 21:52:46,765 - mininet - DEBUG - *** s1 : ('ip link del s1-eth3',)
+
+2022-10-30 21:52:46,781 - mininet - DEBUG - Cannot find device "s1-eth3"
+
+2022-10-30 21:52:46,781 - mininet - DEBUG - 
+2022-10-30 21:52:46,781 - mininet - INFO - 
+
+2022-10-30 21:52:46,781 - mininet - INFO - *** Stopping 1 switches
+
+2022-10-30 21:52:46,781 - mininet - DEBUG - *** errRun: ['ovs-vsctl', '--if-exists', 'del-br', 's1'] 
+
+2022-10-30 21:52:46,900 - mininet - DEBUG -   0
+2022-10-30 21:52:46,900 - mininet - DEBUG - *** errRun: ['kill', '-HUP', '2751'] 
+
+2022-10-30 21:52:46,912 - mininet - DEBUG -   0
+2022-10-30 21:52:46,912 - mininet - INFO - s1 
+2022-10-30 21:52:46,912 - mininet - INFO - 
+
+2022-10-30 21:52:46,913 - mininet - INFO - *** Stopping 4 hosts
+
+2022-10-30 21:52:46,913 - mininet - INFO - attacker 
+2022-10-30 21:52:46,913 - mininet - INFO - plc1 
+2022-10-30 21:52:46,915 - mininet - INFO - plc2 
+2022-10-30 21:52:46,915 - mininet - INFO - plc3 
+2022-10-30 21:52:46,915 - mininet - INFO - 
+*** Done
+
+2022-11-01 17:06:42,312 - mininet - DEBUG - *** errRun: ['grep', '-c', 'processor', '/proc/cpuinfo'] 
+
+2022-11-01 17:06:42,313 - mininet - DEBUG - 1
+  0
+2022-11-01 17:06:42,314 - mininet - DEBUG - *** Setting resource limits
+
+2022-11-01 17:06:42,314 - mininet - INFO - *** Creating network
+
+2022-11-01 17:06:42,314 - mininet - INFO - *** Adding controller
+
+2022-11-01 17:06:42,314 - mininet - DEBUG - *** errRun: ['which', 'controller'] 
+
+2022-11-01 17:06:42,315 - mininet - DEBUG - /usr/local/bin/controller
+  0
+2022-11-01 17:06:42,315 - mininet - DEBUG - *** errRun: ['which', 'mnexec'] 
+
+2022-11-01 17:06:42,316 - mininet - DEBUG - /usr/bin/mnexec
+  0
+2022-11-01 17:06:42,316 - mininet - DEBUG - *** errRun: ['which', 'ifconfig'] 
+
+2022-11-01 17:06:42,317 - mininet - DEBUG - /sbin/ifconfig
+  0
+2022-11-01 17:06:42,319 - mininet - DEBUG - _popen ['mnexec', '-cd', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:c0'] 5158
+2022-11-01 17:06:42,321 - mininet - DEBUG - *** c0 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-11-01 17:06:42,321 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-11-01 17:06:42,322 - mininet - DEBUG - *** errRun: ['which', 'telnet'] 
+
+2022-11-01 17:06:42,322 - mininet - DEBUG - /usr/bin/telnet
+  0
+2022-11-01 17:06:42,326 - mininet - DEBUG - *** c0 : ('echo A | telnet -e A 127.0.0.1 6653',)
+
+2022-11-01 17:06:42,327 - mininet - DEBUG - Telnet escape character is 'A'.
+Trying 127.0.0.1...
+telnet: Unable to connect to remote host: Connection refused
+
+2022-11-01 17:06:42,327 - mininet - INFO - *** Adding hosts:
+
+2022-11-01 17:06:42,328 - mininet - DEBUG - *** errRun: ['which', 'mnexec'] 
+
+2022-11-01 17:06:42,329 - mininet - DEBUG - /usr/bin/mnexec
+  0
+2022-11-01 17:06:42,329 - mininet - DEBUG - *** errRun: ['which', 'ifconfig'] 
+
+2022-11-01 17:06:42,330 - mininet - DEBUG - /sbin/ifconfig
+  0
+2022-11-01 17:06:42,330 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:attacker'] 5165
+2022-11-01 17:06:42,333 - mininet - DEBUG - *** attacker : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-11-01 17:06:42,333 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-11-01 17:06:42,333 - mininet - INFO - attacker 
+2022-11-01 17:06:42,334 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:plc1'] 5167
+2022-11-01 17:06:42,336 - mininet - DEBUG - *** plc1 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-11-01 17:06:42,337 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-11-01 17:06:42,337 - mininet - INFO - plc1 
+2022-11-01 17:06:42,337 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:plc2'] 5169
+2022-11-01 17:06:42,340 - mininet - DEBUG - *** plc2 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-11-01 17:06:42,345 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-11-01 17:06:42,345 - mininet - INFO - plc2 
+2022-11-01 17:06:42,346 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:plc3'] 5171
+2022-11-01 17:06:42,348 - mininet - DEBUG - *** plc3 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-11-01 17:06:42,349 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-11-01 17:06:42,349 - mininet - INFO - plc3 
