@@ -25,8 +25,8 @@ class SwatS1CPS(MiniCPS):
         net.pingAll()
 
         # start devices
-        scada, rtu1, rtu2, rtu3, rtu4, s1 = self.net.get(
-            'scada', 'rtu1', 'rtu2', 'rtu3', 'rtu4', 's1')
+        scada, rtu1, rtu2, rtu3, rtu4, s1, historian = self.net.get(
+            'scada', 'rtu1', 'rtu2', 'rtu3', 'rtu4', 's1', 'historian')
 
         # SPHINX_SWAT_TUTORIAL RUN(
         
@@ -34,6 +34,7 @@ class SwatS1CPS(MiniCPS):
         rtu2.cmd(sys.executable + ' rtu2.py &')
         rtu3.cmd(sys.executable + ' rtu3.py &')
         rtu4.cmd(sys.executable + ' rtu4.py &')
+        historian.cmd(sys.executable + ' historian.py &')
         scada.cmd(sys.executable + ' scada.py &')
         #controller.cmd(sys.executable + ' controller.py &')
         s1.cmd(sys.executable + ' physical_process.py &')

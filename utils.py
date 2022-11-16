@@ -93,23 +93,25 @@ FIT_201_THRESH = 1.00
 # topo {{{1
 IP = {
     'controller': '192.168.1.10',
-    'rtu1': '192.168.1.60',
-    'rtu2': '192.168.1.60',
-    'rtu3': '192.168.1.60',
-    'rtu4': '192.168.1.60',
+    'rtu1': '192.168.1.20',
+    'rtu2': '192.168.1.30',
+    'rtu3': '192.168.1.40',
+    'rtu4': '192.168.1.50',
     'scada': '192.168.1.60',
-    'attacker': '192.168.1.77',
+    'attacker': '192.168.1.70',
+    'historian': '192.168.1.80'
 }
 
 NETMASK = '/24'
 
 MAC = {
     'controller': '00:1D:9C:C8:BC:2E',
-    'rtu1': '00:1D:9C:C8:BC:2E',
-    'rtu2': '00:1D:9C:C8:BC:2E',
-    'rtu3': '00:1D:9C:C8:BC:2E',
-    'rtu4': '00:1D:9C:C8:BC:2E',
+    'rtu1': '00:1D:9C:C8:BC:2A',
+    'rtu2': '00:1D:9C:C8:BC:2B',
+    'rtu3': '00:1D:9C:C8:BC:2C',
+    'rtu4': '00:1D:9C:C8:BC:2D',
     'scada': '64:00:6A:70:86:D0',
+    'historian': '64:00:6A:70:86:D3'
 
 }
 
@@ -134,6 +136,10 @@ RTU4_DATA = {
 # TODO
 CONTROLLER_DATA = {
     'TODO': 'TODO',
+}
+
+HISTORIAN_DATA = {
+     'TODO':'TODO',
 }
 
 # SPHINX_SWAT_TUTORIAL PLC1 UTILS(

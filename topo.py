@@ -1,7 +1,3 @@
-"""
-swat-s1 topology
-"""
-
 from mininet.topo import Topo
 
 from utils import IP, MAC, NETMASK
@@ -63,12 +59,13 @@ class SwatTopo(Topo):
             mac=MAC['scada'])
         self.addLink(scada, switch)
 
-        # controller = self.addHost(
-        #     'controller',
-        #     ip=IP['controller'] + NETMASK,
-        #     mac=MAC['controller'])
-        # self.addLink(controller, switch)
-
+        historian = self.addHost(
+            'historian',
+            ip=IP['historian'] + NETMASK,
+            mac=MAC['historian'])
+        self.addLink(historian, switch)
+        
+        
         # attacker = self.addHost(
         #     'attacker',
         #     ip=IP['attacker'] + NETMASK,

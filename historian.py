@@ -1,5 +1,5 @@
-"""
-scada.py
+l"""
+historian.py
 """
 
 from minicps.devices import SCADAServer
@@ -21,7 +21,7 @@ RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
 HISTORIAN_ADDR = IP['historian']
 
-class SCADAServer(SCADAServer):
+class Historian(SCADAServer):
 
     def pre_loop(self, sleep=0.5):
         """scada pre loop.
@@ -42,7 +42,7 @@ class SCADAServer(SCADAServer):
         while(True):
 
             #co_00_2a = self.receive(CO_0_2a, RTU2A_ADDR)
-            co_00_2a = self.receive(CO_0_2a, SCADA_ADDR)
+            co_00_2a = self.receive(CO_0_2a, HISTORIAN_ADDR)
 
             # NOTE: used for testing first challenge
             #print('DEBUG scada from rtu2a: CO 0-0 2a: {}'.format(co_00_2a))
@@ -59,7 +59,7 @@ class SCADAServer(SCADAServer):
 
 if __name__ == "__main__":
 
-    scada = SCADAServer(
-        name='scada',
+    SCADAServer = historian(
+        name='historian',
         state=STATE,
         protocol=SCADA_PROTOCOL)
