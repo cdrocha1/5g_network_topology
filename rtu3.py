@@ -4,7 +4,7 @@ swat-s1 rtu2
 """
 
 from minicps.devices import RTU, PLC
-from utils import RTU1_DATA, STATE, RTU1_PROTOCOL
+from utils import RTU3_DATA, STATE, RTU3_PROTOCOL
 from utils import RTU_SAMPLES, RTU_PERIOD_SEC
 from utils import IP
 
@@ -13,9 +13,9 @@ import time
 RTU1_ADDR = IP['rtu1']
 RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
-RTU4_ADDR = IP['rtu4']
+#RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
-CTRL_ADDR = IP['controller']
+#CTRL_ADDR = IP['controller']
 
 LIT301_3 = ('LIT301', 3)
 
@@ -58,6 +58,6 @@ if __name__ == "__main__":
     rtu3 = SwatRTU3(
         name='rtu3',
         state=STATE,
-        protocol=RTU1_PROTOCOL,
-        memory=RTU1_DATA,
-        disk=RTU1_DATA)
+        protocol=RTU3_PROTOCOL,
+        memory=RTU3_DATA,
+        disk=RTU3_DATA)

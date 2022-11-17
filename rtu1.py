@@ -13,9 +13,9 @@ import time
 RTU1_ADDR = IP['rtu1']
 RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
-RTU4_ADDR = IP['rtu4']
+#RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
-CTRL_ADDR = IP['controller']
+#CTRL_ADDR = IP['controller']
 
 LIT301_3 = ('LIT301', 3)
 
@@ -55,7 +55,7 @@ class SwatRTU1(RTU):
 if __name__ == "__main__":
 
     # notice that memory init is different form disk init
-    plc3 = SwatRTU1(
+    rtu1 = SwatRTU1(
         name='rtu1',
         state=STATE,
         protocol=RTU1_PROTOCOL,

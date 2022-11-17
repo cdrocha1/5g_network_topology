@@ -92,24 +92,27 @@ FIT_201_THRESH = 1.00
 
 # topo {{{1
 IP = {
-    'controller': '192.168.1.10',
-    'rtu1': '192.168.1.60',
-    'rtu2': '192.168.1.60',
-    'rtu3': '192.168.1.60',
-    'rtu4': '192.168.1.60',
-    'scada': '192.168.1.60',
-    'attacker': '192.168.1.77',
+    'rtu1': '192.168.1.10',
+    'rtu2': '192.168.1.20',
+    'rtu3': '192.168.1.30',
+    'scada': '192.168.1.40',
+    'plc1': '192.168.1.50',
+    'plc2': '192.168.1.60',
+    'plc3': '192.168.1.70',
+    'historian': '192.168.1.80'
 }
 
 NETMASK = '/24'
 
 MAC = {
-    'controller': '00:1D:9C:C8:BC:2E',
-    'rtu1': '00:1D:9C:C8:BC:2E',
-    'rtu2': '00:1D:9C:C8:BC:2E',
-    'rtu3': '00:1D:9C:C8:BC:2E',
-    'rtu4': '00:1D:9C:C8:BC:2E',
+    'rtu1': '00:1D:9C:C7:B0:70',
+    'rtu2': '00:1D:9C:C8:BC:46',
+    'rtu3': '00:1D:9C:C8:BD:F2',
     'scada': '64:00:6A:70:86:D0',
+    'plc1': '00:1D:9C:C7:FA:2C',
+    'plc2': '00:1D:9C:C8:BC:2F',
+    'plc3': '00:1D:9C:C7:FA:2D',
+    'historian': '64:00:6A:70:86:D3'
 
 }
 
@@ -134,6 +137,10 @@ RTU4_DATA = {
 # TODO
 CONTROLLER_DATA = {
     'TODO': 'TODO',
+}
+
+HISTORIAN_DATA = {
+     'TODO':'TODO',
 }
 
 # SPHINX_SWAT_TUTORIAL PLC1 UTILS(
@@ -176,6 +183,36 @@ RTU1_PROTOCOL = {
     'server': RTU1_SERVER
 }
 
+RTU2_ADDR = IP['rtu2']
+RTU2_TAGS = (
+    ('LIT301', 3, 'REAL'),
+    # no interlocks
+)
+RTU2_SERVER = {
+    'address': RTU2_ADDR,
+    'tags': RTU2_TAGS
+}
+RTU2_PROTOCOL = {
+    'name': 'enip',
+    'mode': 1,
+    'server': RTU2_SERVER
+}
+
+RTU3_ADDR = IP['rtu3']
+RTU3_TAGS = (
+    ('LIT301', 3, 'REAL'),
+    # no interlocks
+)
+RTU3_SERVER = {
+    'address': RTU3_ADDR,
+    'tags': RTU3_TAGS
+}
+RTU3_PROTOCOL = {
+    'name': 'enip',
+    'mode': 1,
+    'server': RTU3_SERVER
+}
+
 SCADA_ADDR = IP['scada']
 SCADA_TAGS = (10, 10, 10, 10)
 
@@ -189,6 +226,59 @@ SCADA_PROTOCOL = {
     'server': SCADA_SERVER
 }
 SCADA_PERIOD_SEC = 2.0
+
+PLC1_ADDR = IP['plc1']
+PLC1_TAGS = (
+    ('FIT101', 1, 'REAL'),
+    ('MV101', 1, 'INT'),
+    ('LIT101', 1, 'REAL'),
+    ('P101', 1, 'INT'),
+    # interlocks does NOT go to the statedb
+    ('FIT201', 1, 'REAL'),
+    ('MV201', 1, 'INT'),
+    ('LIT301', 1, 'REAL'),
+)
+PLC1_SERVER = {
+    'address': PLC1_ADDR,
+    'tags': PLC1_TAGS
+}
+PLC1_PROTOCOL = {
+    'name': 'enip',
+    'mode': 1,
+    'server': PLC1_SERVER
+}
+# SPHINX_SWAT_TUTORIAL PLC1 UTILS)
+
+PLC2_ADDR = IP['plc2']
+PLC2_TAGS = (
+    ('FIT201', 2, 'REAL'),
+    ('MV201', 2, 'INT'),
+    # no interlocks
+)
+PLC2_SERVER = {
+    'address': PLC2_ADDR,
+    'tags': PLC2_TAGS
+}
+PLC2_PROTOCOL = {
+    'name': 'enip',
+    'mode': 1,
+    'server': PLC2_SERVER
+}
+
+PLC3_ADDR = IP['plc3']
+PLC3_TAGS = (
+    ('LIT301', 3, 'REAL'),
+    # no interlocks
+)
+PLC3_SERVER = {
+    'address': PLC3_ADDR,
+    'tags': PLC3_TAGS
+}
+PLC3_PROTOCOL = {
+    'name': 'enip',
+    'mode': 1,
+    'server': PLC3_SERVER
+}
 
 # state {{{1
 # SPHINX_SWAT_TUTORIAL STATE(
