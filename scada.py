@@ -19,6 +19,7 @@ RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
 RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
+HISTORIAN_ADDR = IP['historian']
 
 class SCADAServer(SCADAServer):
 

@@ -1,4 +1,4 @@
-l"""
+"""
 historian.py
 """
 
@@ -25,6 +25,10 @@ class Historian(SCADAServer):
 
     def pre_loop(self, sleep=0.5):
         """scada pre loop.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
             - sleep
         """
 
@@ -33,6 +37,10 @@ class Historian(SCADAServer):
 
     def main_loop(self):
         """scada main loop.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
         For each RTU in the network
             - Read the pump status
         """
@@ -60,4 +68,8 @@ if __name__ == "__main__":
     SCADAServer = historian(
         name='historian',
         state=STATE,
+<<<<<<< HEAD
         protocol=SCADA_PROTOCOL)
+=======
+        protocol=SCADA_PROTOCOL)
+>>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847

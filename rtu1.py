@@ -15,7 +15,12 @@ RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
 #RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
+<<<<<<< HEAD
 #CTRL_ADDR = IP['controller']
+=======
+CTRL_ADDR = IP['controller']
+HISTORIAN_ADDR = IP['historian']
+>>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
 
 LIT301_3 = ('LIT301', 3)
 

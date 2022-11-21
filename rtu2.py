@@ -15,7 +15,12 @@ RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
 #RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
+<<<<<<< HEAD
 #CTRL_ADDR = IP['controller']
+=======
+CTRL_ADDR = IP['controller']
+HISTORIAN_ADDR = IP['historian']
+>>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
 
 LIT301_3 = ('LIT301', 3)
 
@@ -58,6 +63,12 @@ if __name__ == "__main__":
     rtu2 = SwatRTU2(
         name='rtu2',
         state=STATE,
+<<<<<<< HEAD
         protocol=RTU2_PROTOCOL,
         memory=RTU2_DATA,
         disk=RTU2_DATA)
+=======
+        protocol=RTU1_PROTOCOL,
+        memory=RTU1_DATA,
+        disk=RTU1_DATA)
+>>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
