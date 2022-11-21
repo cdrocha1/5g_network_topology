@@ -8,8 +8,9 @@ from utils import SCADA_PERIOD_SEC
 from utils import IP
 from utils import CO_0_2a, CO_1_2a, CO_2_2a, CO_3_2a
 from utils import HR_0_2a
-
+import socket
 import time
+import datetime
 
 PLC1_ADDR = IP['plc1']
 PLC2_ADDR = IP['plc2']
@@ -17,9 +18,14 @@ PLC3_ADDR = IP['plc3']
 RTU1_ADDR = IP['rtu1']
 RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
-RTU4_ADDR = IP['rtu4']
+# RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
 HISTORIAN_ADDR = IP['historian']
+
+def format_hist(msg, addr):
+            t = datetime.datetime.now()
+            formatted = "Message: '" + msg + "' -From: " + addr[0] + ":" + str(addr[1]) + " -To SCADA on: " + str(t) +"\n"
+            return formatted
 
 class Historian(SCADAServer):
 
@@ -34,42 +40,65 @@ class Historian(SCADAServer):
 
         time.sleep(sleep)
 
-
+    
+    
+        
     def main_loop(self):
-        """scada main loop.
-<<<<<<< HEAD
-=======
+        sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        
+        #port = 504
+        port2 = 505
+        while True:
+            try:
+                #sockhealth.bind(('',port))
+                sockprocess.bind(('', port2))
+                
+                #print ("Listening on port", port)
+                print ("Listening on port", port2)
 
->>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
-        For each RTU in the network
-            - Read the pump status
-        """
+                break
+            except Exception:
+                print("ERROR: Cannot connect to Port:", port2)
+                port2 += 1
+        try:
+            while True:
+                # message, addr = sockhealth.recvfrom(1024)
+                # print(f"Health data received from {addr}: {message.decode()}")
+                message2, addr2 = sockprocess.recvfrom(1024)
+                print(f"Process data received from {addr2}: {message2.decode()}")
+                
+                #if (message and message2):
+                if (message2):
+                    #health_history = format_hist(message.decode(), addr)
+                    process_history = format_hist(message2.decode(), addr2)
+                    try:
+                        #with open('health_data.txt','a') as h, open('process_data.txt','a') as p:
+                        with open('process_data.txt','a') as p:                        
+                            #h.write(str(health_history))
+                            p.write(str(process_history))
+                            
+                            
+                    except:
+                        print("error writing to historian")
 
-        while(True):
+                        
 
-            #co_00_2a = self.receive(CO_0_2a, RTU2A_ADDR)
-            co_00_2a = self.receive(CO_0_2a, HISTORIAN_ADDR)
+            
+        except KeyboardInterrupt:
+            pass
+        finally:
+            sockhealth.close()
+            sockprocess.close()
+            #h.close()
+            p.close()
 
-            # NOTE: used for testing first challenge
-            #print('DEBUG scada from rtu2a: CO 0-0 2a: {}'.format(co_00_2a))
-
-            # NOTE: used for testing second challenge
-            # NOTE: comment out
-            # hr_03_2a = self.receive(HR_0_2a, RTU2B_ADDR, count=3)
-            # print('DEBUG scada from rtu2b: HR 0-2 2a: {}'.format(hr_03_2a))
-
-
-            # print("DEBUG: scada main loop")
-            time.sleep(SCADA_PERIOD_SEC)
-
+    
+>>>>>>> 7a4483911860e0bdc85c5de9776c30517b342caa
 
 if __name__ == "__main__":
 
-    SCADAServer = historian(
+    SCADAServer = Historian(
         name='historian',
         state=STATE,
-<<<<<<< HEAD
         protocol=SCADA_PROTOCOL)
-=======
-        protocol=SCADA_PROTOCOL)
->>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847

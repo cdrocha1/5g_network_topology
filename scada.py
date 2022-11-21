@@ -10,6 +10,9 @@ from utils import CO_0_2a, CO_1_2a, CO_2_2a, CO_3_2a
 from utils import HR_0_2a
 
 import time
+import socket
+import sys
+
 
 PLC1_ADDR = IP['plc1']
 PLC2_ADDR = IP['plc2']
@@ -17,7 +20,7 @@ PLC3_ADDR = IP['plc3']
 RTU1_ADDR = IP['rtu1']
 RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
-RTU4_ADDR = IP['rtu4']
+#RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
 HISTORIAN_ADDR = IP['historian']
 
@@ -37,26 +40,51 @@ class SCADAServer(SCADAServer):
 
         For each RTU in the network
             - Read the pump status
-        """
+        """	
+        #sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        while(True):
+        #port = 502
+        port2 = 503
+        while True:
+            try:
+                #sockhealth.bind(('',port))
+                sockprocess.bind(('', port2))
+                
+                #print ("Listening on port", port)
+                print ("Listening on port", port2)
 
-            #co_00_2a = self.receive(CO_0_2a, RTU2A_ADDR)
-            co_00_2a = self.receive(CO_0_2a, SCADA_ADDR)
-
-            # NOTE: used for testing first challenge
-            #print('DEBUG scada from rtu2a: CO 0-0 2a: {}'.format(co_00_2a))
-
-            # NOTE: used for testing second challenge
-            # NOTE: comment out
-            # hr_03_2a = self.receive(HR_0_2a, RTU2B_ADDR, count=3)
-            # print('DEBUG scada from rtu2b: HR 0-2 2a: {}'.format(hr_03_2a))
-
-
-            # print("DEBUG: scada main loop")
-            time.sleep(SCADA_PERIOD_SEC)
-
-
+                break
+            except Exception:
+                 print("ERROR: Cannot connect to Port:", port2)
+                 port2 += 1
+        try:
+            # print ("Would you like to redirect health data to Edge Server?")
+            # answer = input('')
+            # if answer =='yes':
+            while True:
+                # message, addr = sockhealth.recvfrom(1024)
+                # print(f"Health data received from {addr}: {message.decode()}")
+                # sockhealth.sendto(message, ('', 504))
+                # sockhealth.sendto(message,('10.211.55.3',103))
+                message2, addr2 = sockprocess.recvfrom(1024)
+                print(f"Process data received from {addr2}: {message2.decode()}")
+                sockprocess.sendto(message2, ('',505))
+                #sockprocess.sendto(message2,('10.211.55.3',104))
+                    
+                # if (message and message2):
+                #     sockhealth.sendto(b"Health data received by SCADA", addr)
+                #     sockprocess.sendto(b"Process data received by SCADA", addr2)
+                if (message2):
+                        sockprocess.sendto(b"Process data received by SCADA", addr2)
+                
+                 
+        except KeyboardInterrupt:
+            pass
+        finally:
+            #sockhealth.close()
+            sockprocess.close()
+            
 if __name__ == "__main__":
 
     scada = SCADAServer(
