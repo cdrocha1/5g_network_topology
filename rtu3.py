@@ -23,7 +23,7 @@ LIT301_3 = ('LIT301', 3)
 class SwatRTU3(RTU):
 
     def pre_loop(self, sleep=0.1):
-        print 'DEBUG: project topo rtu2 enters pre_loop'
+        print ('DEBUG: project topo rtu2 enters pre_loop')
         print
 
         time.sleep(sleep)
@@ -35,22 +35,24 @@ class SwatRTU3(RTU):
             - update internal enip server
         """
 
-        print 'DEBUG: swat-s1 rtu2 enters main_loop.'
+        print ('DEBUG: swat-s1 rtu2 enters main_loop.')
         print
 
         count = 0
+        lit301 = 0.456
         while(count <= RTU_SAMPLES):
-
-            lit301 = float(self.get(LIT301_3))
-            print "DEBUG RTU - get lit301: %f" % lit301
-
-            self.send(LIT301_3, lit301, RTU3_ADDR)
-
-            time.sleep(RTU_PERIOD_SEC)
-            count += 1
-
-        print 'DEBUG swat rtu2 shutdown'
-
+        	if lit301 <=20:
+        		print ("Tank filling - get lit301: %f" % lit301)
+        	else:
+        		print ("lit301 filling - get lit301: %f" % lit301)
+        	
+        	lit301 += 2.554
+        	time.sleep (RTU_PERIOD_SEC)
+        	count += 1
+        	
+        print ('DEBUG swat rtu2 shutdown')
+        print ("lit301 filling - get lit301: %f" % lit301)
+        
 
 if __name__ == "__main__":
 

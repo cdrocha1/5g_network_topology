@@ -9,6 +9,9 @@ from utils import RTU_SAMPLES, RTU_PERIOD_SEC
 from utils import IP
 
 import time
+import socket
+import sys
+
 
 RTU1_ADDR = IP['rtu1']
 RTU2_ADDR = IP['rtu2']
@@ -23,7 +26,7 @@ LIT301_3 = ('LIT301', 3)
 class SwatRTU2(RTU):
 
     def pre_loop(self, sleep=0.1):
-        print 'DEBUG: project topo rtu2 enters pre_loop'
+        print ('DEBUG: project topo rtu2 enters pre_loop')
         print
 
         time.sleep(sleep)
@@ -35,22 +38,39 @@ class SwatRTU2(RTU):
             - update internal enip server
         """
 
-        print 'DEBUG: swat-s1 rtu2 enters main_loop.'
+        print ('DEBUG: swat-s1 rtu2 enters main_loop.')
         print
 
         count = 0
         while(count <= RTU_SAMPLES):
 
             lit301 = float(self.get(LIT301_3))
-            print "DEBUG RTU - get lit301: %f" % lit301
+            print ("DEBUG RTU - get lit301: %f" % lit301)
 
             self.send(LIT301_3, lit301, RTU2_ADDR)
 
             time.sleep(RTU_PERIOD_SEC)
             count += 1
 
-        print 'DEBUG swat rtu2 shutdown'
+        print ('DEBUG swat rtu2 shutdown')
 
+    def listen (ip, port):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            print ("UDP sending on port", port)
+            sock.settimeout(5)
+            while True:
+                print("Message for server: ")
+                msg = input('')
+                sock.sendto(msg.encode(), (ip,port))
+                
+                data, addr = sock.recvfrom(1024)
+                print("Message sent: ",msg ,"Message received: ",data.decode())
+        except socket.timeout:
+            print ("ERROR: acknowledgment was not received")
+        except Exception as ex:
+            print("Error: ", ex)
+    listen('',502)
 
 if __name__ == "__main__":
 

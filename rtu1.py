@@ -9,6 +9,8 @@ from utils import RTU_SAMPLES, RTU_PERIOD_SEC
 from utils import IP
 
 import time
+import socket
+
 
 RTU1_ADDR = IP['rtu1']
 RTU2_ADDR = IP['rtu2']
@@ -22,11 +24,11 @@ LIT301_3 = ('LIT301', 3)
 
 class SwatRTU1(RTU):
 
-    def pre_loop(self, sleep=0.1):
-        print 'DEBUG: project topo rtu1 enters pre_loop'
-        print
+    #def pre_loop(self, sleep=0.1):
+    #    print ('DEBUG: project topo rtu1 enters pre_loop')
+    #    print
 
-        time.sleep(sleep)
+    #    time.sleep(sleep)
 
     def main_loop(self):
         """rtu1 main loop.
@@ -34,23 +36,34 @@ class SwatRTU1(RTU):
             - read UF tank level from the sensor
             - update internal enip server
         """
+        
+    def listen(ip, port):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            print("UDP sending on Port:", port)
+            sock.settimeout(5)
+            while True:
+                print("Message for server: ")
+                msg = input('')
+                sock.sendto(msg.encode(), (ip, port))
+                #print("message sent")
+                #print("waiting for response on socket")
+                if(msg != 'Bye'):
+                    data, addr = sock.recvfrom(1024)
+                    print(msg, data.decode())
+                else:
+                    data, addr = sock.recvfrom(1024)
+                    print(data.decode())
+                    sock.close()
+                    sys.exit()
+        except socket.timeout:
+            print("ERROR: acknowledgement was not received")
+        except Exception as ex:
+            print("ERROR:", ex)
+            #finally:
+                #sock.close()
 
-        print 'DEBUG: swat-s1 rtu1 enters main_loop.'
-        print
-
-        count = 0
-        while(count <= RTU_SAMPLES):
-
-            lit301 = float(self.get(LIT301_3))
-            print "DEBUG RTU - get lit301: %f" % lit301
-
-            self.send(LIT301_3, lit301, RTU1_ADDR)
-
-            time.sleep(RTU_PERIOD_SEC)
-            count += 1
-
-        print 'DEBUG swat rtu1 shutdown'
-
+    listen('', 502)
 
 if __name__ == "__main__":
 
