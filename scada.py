@@ -40,32 +40,40 @@ class SCADAServer(SCADAServer):
         For each RTU in the network
             - Read the pump status
         """	
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
         port = 502
+        port2 = 503
         while True:
             try:
-                sock.bind(('',port))
+                sockhealth.bind(('',port))
+                sockprocess.bind(('', port2))
+                
                 print ("Listening on port", port)
+                print ("Listening on port", port2)
+
                 break
             except Exception:
                  print("ERROR: Cannot connect to Port:", port)
                  port += 1
         try:
             while True:
-                message, addr = sock.recvfrom(1024)  # OK someone pinged me.
-                print(f"received from {addr}: {message}")
+                message, addr = sockhealth.recvfrom(1024)
+                print(f"Health data received from {addr}: {message}")
+                message2, addr2 = sockprocess.recvfrom(1024)
+                print(f"Process data received from {addr2}: {message2}")
+                
+                if (message and message2):
+                    sockhealth.sendto(b"Health data received by SCADA", addr)
+                    sockprocess.sendto(b"Process data received by SCADA", addr2)
 
-                if(message.decode() != 'Bye'):
-                    sock.sendto(b"OK", addr)
-                else:
-                    sock.sendto(b"Goodbye!", addr)
-                    sock.close()
-                    sys.exit()
         
         except KeyboardInterrupt:
             pass
         finally:
-            sock.close()
+            sockhealth.close()
+            sockprocess.close()
             
 if __name__ == "__main__":
 
