@@ -54,24 +54,42 @@ class SwatRTU2(RTU):
 
         print ('DEBUG swat rtu2 shutdown')
 
-    def listen (ip, port):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    def listen(ip, port, port2):
+        sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         try:
-            print ("UDP sending on port", port)
-            sock.settimeout(5)
+            print("UDP sending data on Port:", port)
+            sockhealth.settimeout(5)
             while True:
-                print("Message for server: ")
+                print("Health data for server: ")
                 msg = input('')
-                sock.sendto(msg.encode(), (ip,port))
-                
-                data, addr = sock.recvfrom(1024)
-                print("Message sent: ",msg ,"Message received: ",data.decode())
-        except socket.timeout:
-            print ("ERROR: acknowledgment was not received")
-        except Exception as ex:
-            print("Error: ", ex)
-    listen('',502)
+                sockhealth.sendto(msg.encode(), (ip, port))
 
+                print('Process data for server: ')
+                msg2 = input('')
+                sockprocess.sendto(msg2.encode(), (ip, port2))
+
+                if(msg != 'Bye'):
+                    data, addr = sockhealth.recvfrom(1024)
+                    print(msg, data.decode())
+                    data2, addr2 = sockprocess.recvfrom(1024)
+                    print(msg2, data2.decode())
+
+                else:
+                    data, addr = sockhealth.recvfrom(1024)
+                    print(data.decode())
+                    data2, addr2 = sockprocess.recvfrom(1024)
+                    print(msg2, data2.decode())
+                    sockhealth.close()
+                    sockprocess.close()
+                    sys.exit()
+        except socket.timeout:
+            print("ERROR: acknowledgement was not received")
+        except Exception as ex:
+            print("ERROR:", ex)
+            #finally:
+                #sock.close()
+    listen('', 502,503)
 if __name__ == "__main__":
 
     # notice that memory init is different form disk init
