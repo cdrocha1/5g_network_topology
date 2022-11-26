@@ -73,8 +73,7 @@ class Historian(SCADAServer):
                     process_history = format_hist(message2.decode(), addr2)
                     try:
                         with open('health_data.txt','a') as h, open('process_data.txt','a') as p:
-                            print("health history: " + health_history)
-                            print("process history: " + process_history)
+                        
                             h.write(str(health_history))
                             p.write(str(process_history))
                             
