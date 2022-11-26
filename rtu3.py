@@ -69,20 +69,11 @@ class SwatRTU3(RTU):
                 msg2 = input('')
                 sockprocess.sendto(msg2.encode(), (ip, port2))
 
-                if(msg != 'Bye'):
-                    data, addr = sockhealth.recvfrom(1024)
-                    print(msg, data.decode())
-                    data2, addr2 = sockprocess.recvfrom(1024)
-                    print(msg2, data2.decode())
-
-                else:
-                    data, addr = sockhealth.recvfrom(1024)
-                    print(data.decode())
-                    data2, addr2 = sockprocess.recvfrom(1024)
-                    print(msg2, data2.decode())
-                    sockhealth.close()
-                    sockprocess.close()
-                    sys.exit()
+                data, addr = sockhealth.recvfrom(1024)
+                print(msg, data.decode())
+                data2, addr2 = sockprocess.recvfrom(1024)
+                print(msg2, data2.decode())
+                
         except socket.timeout:
             print("ERROR: acknowledgement was not received")
         except Exception as ex:
