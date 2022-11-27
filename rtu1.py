@@ -11,6 +11,7 @@ from utils import IP
 import random
 import time
 import socket
+import sys
 
 
 RTU1_ADDR = IP['rtu1']
@@ -45,8 +46,10 @@ class SwatRTU1(RTU):
         
         temp = 45
         try:
-            print("UDP sending data on Port:", port)
+            print("UDP sending health data on Port:", port)
+            print("UDP sending process data on Port: ", port2)
             sockhealth.settimeout(5)
+            sockprocess.settimeout(5)
             while True:
 
                 
@@ -82,7 +85,7 @@ class SwatRTU1(RTU):
             print("ERROR:", ex)
             #finally:
                 #sock.close()
-    listen('', 502,503)
+    listen(ip=sys.argv[1], port=int(sys.argv[2]), port2=int(sys.argv[3]))
 
 if __name__ == "__main__":
 
