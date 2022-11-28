@@ -41,17 +41,17 @@ class SCADAServer(SCADAServer):
         For each RTU in the network
             - Read the pump status
         """	
-        #sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        #port = 502
+        port = 502
         port2 = 503
         while True:
             try:
-                #sockhealth.bind(('',port))
+                sockhealth.bind(('10.0.2.21',port))
                 sockprocess.bind(('', port2))
                 
-                #print ("Listening on port", port)
+                print ("Listening on port", port)
                 print ("Listening on port", port2)
 
                 break
@@ -63,9 +63,9 @@ class SCADAServer(SCADAServer):
             # answer = input('')
             # if answer =='yes':
             while True:
-                # message, addr = sockhealth.recvfrom(1024)
-                # print(f"Health data received from {addr}: {message.decode()}")
-                # sockhealth.sendto(message, ('', 504))
+                message, addr = sockhealth.recvfrom(1024)
+                print(f"Health data received from {addr}: {message.decode()}")
+                sockhealth.sendto(message, ('', 504))
                 # sockhealth.sendto(message,('10.211.55.3',103))
                 message2, addr2 = sockprocess.recvfrom(1024)
                 print(f"Process data received from {addr2}: {message2.decode()}")

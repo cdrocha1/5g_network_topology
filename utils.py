@@ -144,6 +144,16 @@ HISTORIAN_DATA = {
      'TODO':'TODO',
 }
 
+PLC1_DATA = {
+    'TODO': 'TODO',
+}
+PLC2_DATA = {
+    'TODO': 'TODO',
+}
+PLC3_DATA = {
+    'TODO': 'TODO',
+}
+
 # SPHINX_SWAT_TUTORIAL PLC1 UTILS(
 # PLC1_ADDR = IP['plc1']
 # PLC1_TAGS = (

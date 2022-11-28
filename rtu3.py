@@ -18,12 +18,7 @@ RTU2_ADDR = IP['rtu2']
 RTU3_ADDR = IP['rtu3']
 #RTU4_ADDR = IP['rtu4']
 SCADA_ADDR = IP['scada']
-<<<<<<< HEAD
 #CTRL_ADDR = IP['controller']
-=======
-CTRL_ADDR = IP['controller']
-HISTORIAN_ADDR = IP['historian']
->>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
 
 LIT301_3 = ('LIT301', 3)
 
@@ -31,7 +26,7 @@ LIT301_3 = ('LIT301', 3)
 class SwatRTU3(RTU):
 
     def pre_loop(self, sleep=0.1):
-        print ('DEBUG: project topo rtu2 enters pre_loop')
+        print('DEBUG: project topo rtu2 enters pre_loop')
         print
 
         time.sleep(sleep)
@@ -44,70 +39,92 @@ class SwatRTU3(RTU):
         """
 
         #print ('DEBUG: swat-s1 rtu2 enters main_loop.')
-        #print
+        # print
 
         #count = 0
         #lit301 = 0.456
-        #while(count <= RTU_SAMPLES):
+        # while(count <= RTU_SAMPLES):
         #	if lit301 <=20:
         #		print ("Tank filling - get lit301: %f" % lit301)
         #	else:
         #		print ("lit301 filling - get lit301: %f" % lit301)
-        	
+
         #	lit301 += 2.554
         #	time.sleep (RTU_PERIOD_SEC)
         #	count += 1
-        	
+
         #print ('DEBUG swat rtu2 shutdown')
         #print ("lit301 filling - get lit301: %f" % lit301)
+     # ip = IP of SCADA, ip2 = IP of edge server, port = health data, port2 = process data - ip2=10.0.2.22, port=103 | ip=127.0.0.1, port2=503
     def listen(ip, ip2, port, port2):
         sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        health_data_options = ["temp sensor: working as expected, RTU working as expected", "temp sensor: Needs maintanence"]
-        
+        sock_plc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        plc_port = 499
         temp = 45
         try:
             print("UDP sending health data on Port:", port)
             print("UDP sending process data on Port: ", port2)
-            sockhealth.settimeout(5)
-            sockprocess.settimeout(5)
+            # sockhealth.settimeout(5)
+            # sockprocess.settimeout(5)
+            # sock_plc.settimeout(5)
             while True:
+                try:
+                    # sockhealth.bind(('',port))
+                    sock_plc.bind(('', plc_port))
 
-                
-                if(temp >= 0 and temp < 999):
-                    health_data = health_data_options[0]
-                else:
-                    health_data = health_data_options[1]
-                
-                temp += random.randint(-5,10)
-                process_data = "Temp in Celcius: " + str(temp)
+                    #print ("Listening on port", port)
+                    print("Listening on port", plc_port)
 
-                # print("Health data for server: ")
-                # msg = input('')
-                #sockhealth.sendto(health_data.encode(), (ip, port))
-                sockhealth.sendto(health_data.encode(), (ip2, port))
+                except Exception:
+                    print("ERROR: Cannot connect to Port:", port2)
+                    port2 += 1
 
-                # print('Process data for server: ')
-                # msg2 = input('')
-                sockprocess.sendto(process_data.encode(), (ip, port2))
-                data, addr = sockhealth.recvfrom(1024)
-                print(health_data, data.decode())
-                #print(msg, data.decode())
-                
-                data2, addr2 = sockprocess.recvfrom(1024)
-                print(process_data, data2.decode())
-                #print(msg2, data2.decode())
+                while True:
+                    data, addr = sock_plc.recvfrom(1024)
+                    print("PLC1 data recived:", data.decode())
+                    if "HEALTH" in data.decode():
+                        print("health")
+                        health_data = data.decode()
+                        sockhealth.sendto(health_data.encode(), (ip2, port))
+                        data2, addr2 = sockhealth.recvfrom(1024)
+                        print(health_data, data2.decode())
+                    if "PROCESS" in data.decode():
+                        print("process")
+                        process_data = data.decode()
+                        sockprocess.sendto(process_data.encode(), (ip, port2))
+                        data3, addr3 = sockprocess.recvfrom(1024)
+                        print(process_data, data3.decode())
 
-                time.sleep(2)
+                    # print("Health data for server: ")
+                    # msg = input('')
+                    #sockhealth.sendto(health_data.encode(), (ip, port))
+                    #sockhealth.sendto(health_data.encode(), (ip2, port))
 
+                    # print('Process data for server: ')
+                    # msg2 = input('')
+                    #sockprocess.sendto(process_data.encode(), (ip, port2))
+
+                    # get response on being recieved
+                    #data2, addr2 = sockhealth.recvfrom(1024)
+                    #print(health_data, data2.decode())
+                    #print(msg, data.decode())
+
+                    #data3, addr3 = sockprocess.recvfrom(1024)
+                    #print(process_data, data3.decode())
+                    #print(msg2, data2.decode())
+
+                    time.sleep(2)
 
         except socket.timeout:
             print("ERROR: acknowledgement was not received")
         except Exception as ex:
             print("ERROR:", ex)
-            #finally:
-                #sock.close()
-    listen(ip=sys.argv[1], ip2=sys.argv[2], port=int(sys.argv[3]), port2=int(sys.argv[4]))
+            # finally:
+            # sock.close()
+    listen(ip=sys.argv[1], ip2=sys.argv[2], port=int(
+        sys.argv[3]), port2=int(sys.argv[4]))
+
 
 if __name__ == "__main__":
 
@@ -115,12 +132,6 @@ if __name__ == "__main__":
     rtu3 = SwatRTU3(
         name='rtu3',
         state=STATE,
-<<<<<<< HEAD
         protocol=RTU3_PROTOCOL,
         memory=RTU3_DATA,
         disk=RTU3_DATA)
-=======
-        protocol=RTU1_PROTOCOL,
-        memory=RTU1_DATA,
-        disk=RTU1_DATA)
->>>>>>> 9da07f1b7fb7a09d2371da5c30fec200360e0847
