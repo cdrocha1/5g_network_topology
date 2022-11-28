@@ -1,19 +1,9 @@
-Message: 'test1' -From: 127.0.0.1:55703 -To SCADA on: 2022-11-26 12:40:14.849723
-Message: 'test2' -From: 127.0.0.1:55703 -To SCADA on: 2022-11-26 12:40:17.094970
-Message: 'test3' -From: 127.0.0.1:55703 -To SCADA on: 2022-11-26 12:40:19.760671
-Message: 'health1' -From: 127.0.0.1:52106 -To SCADA on: 2022-11-26 13:05:27.803655
-Message: 'rtu1' -From: 127.0.0.1:55703 -To SCADA on: 2022-11-26 13:05:48.402596
-Message: 'test data1' -From: 127.0.0.1:40810 -To SCADA on: 2022-11-26 13:27:09.163542
-Message: 'Health data from RTU2' -From: 127.0.0.1:40810 -To SCADA on: 2022-11-26 13:27:29.260834
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:44.229978
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:46.232444
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:48.235562
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:50.237940
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:52.241240
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:54.243997
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:56.248077
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:43:58.250315
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:44:00.252939
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:44:02.255421
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:44:04.258269
-Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:49163 -To SCADA on: 2022-11-26 13:44:06.260868
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:27.465631
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:29.468993
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:31.472467
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:33.475241
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:35.477553
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:37.480678
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:39.487594
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:41.488113
+Message: 'temp sensor: working as expected, RTU working as expected' -From: 127.0.0.1:502 -To SCADA on: 2022-11-27 18:37:43.490240

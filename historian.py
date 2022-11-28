@@ -43,8 +43,8 @@ class Historian(SCADAServer):
         sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         
-        port = 502
-        port2 = 503
+        port = 504
+        port2 = 505
         while True:
             try:
                 sockhealth.bind(('',port))
@@ -65,8 +65,8 @@ class Historian(SCADAServer):
                 print(f"Process data received from {addr2}: {message2.decode()}")
                 
                 if (message and message2):
-                    sockhealth.sendto(b"Health data received by SCADA", addr)
-                    sockprocess.sendto(b"Process data received by SCADA", addr2)
+                    #sockhealth.sendto(b"Health data received by SCADA", addr)
+                    #sockprocess.sendto(b"Process data received by SCADA", addr2)
 
 
                     health_history = format_hist(message.decode(), addr)

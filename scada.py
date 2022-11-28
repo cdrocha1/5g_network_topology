@@ -60,9 +60,12 @@ class SCADAServer(SCADAServer):
         try:
             while True:
                 message, addr = sockhealth.recvfrom(1024)
+                #print('THIS IS ADDRESSSSSSSSSSSSSS', addr)
                 print(f"Health data received from {addr}: {message.decode()}")
+                sockhealth.sendto(message, ('', 504))
                 message2, addr2 = sockprocess.recvfrom(1024)
                 print(f"Process data received from {addr2}: {message2.decode()}")
+                sockprocess.sendto(message2, ('',505))
                 
                 if (message and message2):
                     sockhealth.sendto(b"Health data received by SCADA", addr)

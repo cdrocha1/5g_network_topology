@@ -1,19 +1,9 @@
-Message: 'test1' -From: 127.0.0.1:48550 -To SCADA on: 2022-11-26 12:40:14.849738
-Message: 'test2' -From: 127.0.0.1:48550 -To SCADA on: 2022-11-26 12:40:17.094982
-Message: 'test3' -From: 127.0.0.1:48550 -To SCADA on: 2022-11-26 12:40:19.760681
-Message: 'health2' -From: 127.0.0.1:50578 -To SCADA on: 2022-11-26 13:05:27.803671
-Message: 'rtu2' -From: 127.0.0.1:50578 -To SCADA on: 2022-11-26 13:05:48.402610
-Message: 'test data2' -From: 127.0.0.1:35605 -To SCADA on: 2022-11-26 13:27:09.163558
-Message: 'Process data from RTU2' -From: 127.0.0.1:35605 -To SCADA on: 2022-11-26 13:27:29.260847
-Message: 'Temp in Celcius: 47' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:44.229991
-Message: 'Temp in Celcius: 52' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:46.232453
-Message: 'Temp in Celcius: 49' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:48.235571
-Message: 'Temp in Celcius: 58' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:50.237949
-Message: 'Temp in Celcius: 67' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:52.241250
-Message: 'Temp in Celcius: 66' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:54.244032
-Message: 'Temp in Celcius: 62' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:56.248085
-Message: 'Temp in Celcius: 70' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:43:58.250324
-Message: 'Temp in Celcius: 74' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:44:00.252948
-Message: 'Temp in Celcius: 78' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:44:02.255431
-Message: 'Temp in Celcius: 80' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:44:04.258279
-Message: 'Temp in Celcius: 86' -From: 127.0.0.1:35933 -To SCADA on: 2022-11-26 13:44:06.260879
+Message: 'Temp in Celcius: 44' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:27.465646
+Message: 'Temp in Celcius: 40' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:29.469006
+Message: 'Temp in Celcius: 40' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:31.472480
+Message: 'Temp in Celcius: 37' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:33.475253
+Message: 'Temp in Celcius: 43' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:35.477566
+Message: 'Temp in Celcius: 48' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:37.480689
+Message: 'Temp in Celcius: 50' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:39.487608
+Message: 'Temp in Celcius: 60' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:41.488127
+Message: 'Temp in Celcius: 69' -From: 127.0.0.1:503 -To SCADA on: 2022-11-27 18:37:43.490252
