@@ -65,9 +65,6 @@ class Historian(SCADAServer):
                 print(f"Process data received from {addr2}: {message2.decode()}")
                 
                 if (message and message2):
-                    #sockhealth.sendto(b"Health data received by SCADA", addr)
-                    #sockprocess.sendto(b"Process data received by SCADA", addr2)
-
 
                     health_history = format_hist(message.decode(), addr)
                     process_history = format_hist(message2.decode(), addr2)
