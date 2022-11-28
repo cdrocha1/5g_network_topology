@@ -39,7 +39,7 @@ class SwatRTU1(RTU):
             - update internal enip server
         """
         
-    def listen(ip, port, port2):
+    def listen(ip, ip2, port, port2):
         sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         health_data_options = ["temp sensor: working as expected, RTU working as expected", "temp sensor: Needs maintanence"]
@@ -63,7 +63,8 @@ class SwatRTU1(RTU):
 
                 # print("Health data for server: ")
                 # msg = input('')
-                sockhealth.sendto(health_data.encode(), (ip, port))
+                #sockhealth.sendto(health_data.encode(), (ip, port))
+                sockhealth.sendto(health_data.encode(), (ip2, port))
 
                 # print('Process data for server: ')
                 # msg2 = input('')
@@ -85,7 +86,7 @@ class SwatRTU1(RTU):
             print("ERROR:", ex)
             #finally:
                 #sock.close()
-    listen(ip=sys.argv[1], port=int(sys.argv[2]), port2=int(sys.argv[3]))
+    listen(ip=sys.argv[1], ip2=sys.argv[2], port=int(sys.argv[3]), port2=int(sys.argv[4]))
 
 if __name__ == "__main__":
 

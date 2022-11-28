@@ -43,35 +43,35 @@ class Historian(SCADAServer):
         sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         
-        port = 504
+        #port = 504
         port2 = 505
         while True:
             try:
-                sockhealth.bind(('',port))
+                #sockhealth.bind(('',port))
                 sockprocess.bind(('', port2))
                 
-                print ("Listening on port", port)
+                #print ("Listening on port", port)
                 print ("Listening on port", port2)
 
                 break
             except Exception:
-                print("ERROR: Cannot connect to Port:", port)
-                port += 1
+                print("ERROR: Cannot connect to Port:", port2)
+                port2 += 1
         try:
             while True:
-                message, addr = sockhealth.recvfrom(1024)
-                print(f"Health data received from {addr}: {message.decode()}")
+                # message, addr = sockhealth.recvfrom(1024)
+                # print(f"Health data received from {addr}: {message.decode()}")
                 message2, addr2 = sockprocess.recvfrom(1024)
                 print(f"Process data received from {addr2}: {message2.decode()}")
                 
-                if (message and message2):
-
-                    health_history = format_hist(message.decode(), addr)
+                #if (message and message2):
+                if (message2):
+                    #health_history = format_hist(message.decode(), addr)
                     process_history = format_hist(message2.decode(), addr2)
                     try:
-                        with open('health_data.txt','a') as h, open('process_data.txt','a') as p:
-                        
-                            h.write(str(health_history))
+                        #with open('health_data.txt','a') as h, open('process_data.txt','a') as p:
+                        with open('process_data.txt','a') as p:                        
+                            #h.write(str(health_history))
                             p.write(str(process_history))
                             
                             
@@ -86,7 +86,7 @@ class Historian(SCADAServer):
         finally:
             sockhealth.close()
             sockprocess.close()
-            h.close()
+            #h.close()
             p.close()
 
     

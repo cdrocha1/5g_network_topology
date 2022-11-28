@@ -40,44 +40,48 @@ class SCADAServer(SCADAServer):
         For each RTU in the network
             - Read the pump status
         """	
-        sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        #sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        port = 502
+        #port = 502
         port2 = 503
         while True:
             try:
-                sockhealth.bind(('',port))
+                #sockhealth.bind(('',port))
                 sockprocess.bind(('', port2))
                 
-                print ("Listening on port", port)
+                #print ("Listening on port", port)
                 print ("Listening on port", port2)
 
                 break
             except Exception:
-                 print("ERROR: Cannot connect to Port:", port)
-                 port += 1
+                 print("ERROR: Cannot connect to Port:", port2)
+                 port2 += 1
         try:
+            # print ("Would you like to redirect health data to Edge Server?")
+            # answer = input('')
+            # if answer =='yes':
             while True:
-                message, addr = sockhealth.recvfrom(1024)
-                #print('THIS IS ADDRESSSSSSSSSSSSSS', addr)
-                print(f"Health data received from {addr}: {message.decode()}")
-                sockhealth.sendto(message, ('', 504))
-                sockhealth.sendto(message,('10.211.55.3',103))
+                # message, addr = sockhealth.recvfrom(1024)
+                # print(f"Health data received from {addr}: {message.decode()}")
+                # sockhealth.sendto(message, ('', 504))
+                # sockhealth.sendto(message,('10.211.55.3',103))
                 message2, addr2 = sockprocess.recvfrom(1024)
                 print(f"Process data received from {addr2}: {message2.decode()}")
                 sockprocess.sendto(message2, ('',505))
-                sockprocess.sendto(message2,('10.211.55.3',104))
+                #sockprocess.sendto(message2,('10.211.55.3',104))
+                    
+                # if (message and message2):
+                #     sockhealth.sendto(b"Health data received by SCADA", addr)
+                #     sockprocess.sendto(b"Process data received by SCADA", addr2)
+                if (message2):
+                        sockprocess.sendto(b"Process data received by SCADA", addr2)
                 
-                if (message and message2):
-                    sockhealth.sendto(b"Health data received by SCADA", addr)
-                    sockprocess.sendto(b"Process data received by SCADA", addr2)
-
-        
+                 
         except KeyboardInterrupt:
             pass
         finally:
-            sockhealth.close()
+            #sockhealth.close()
             sockprocess.close()
             
 if __name__ == "__main__":
