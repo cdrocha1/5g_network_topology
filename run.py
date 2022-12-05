@@ -29,15 +29,14 @@ class SwatS1CPS(MiniCPS):
         'plc1', 'plc2', 'plc3','rtu1', 'rtu2', 'rtu3', 'scada','historian','s1')
 
         # SPHINX_SWAT_TUTORIAL RUN(
-        
-        rtu1.cmd(sys.executable + ' rtu1.py &')
-        rtu2.cmd(sys.executable + ' rtu2.py &')
-        rtu3.cmd(sys.executable + ' rtu3.py &')
-        plc2.cmd(sys.executable + ' plc2.py &')
-        plc3.cmd(sys.executable + ' plc3.py &')
-        plc1.cmd(sys.executable + ' plc1.py &')
         historian.cmd(sys.executable + ' historian.py &')
         scada.cmd(sys.executable + ' scada.py &')
+        plc2.cmd(sys.executable + ' plc2.py 127.0.0.1 501 &')
+        plc3.cmd(sys.executable + ' plc3.py 127.0.0.1 500 &')
+        plc1.cmd(sys.executable + ' plc1.py 127.0.0.1 499 &')
+        rtu1.cmd(sys.executable + ' rtu1.py 127.0.0.1 10.0.2.22 103 503 &')
+        rtu2.cmd(sys.executable + ' rtu2.py 127.0.0.1 10.0.2.22 103 503 &')
+        rtu3.cmd(sys.executable + ' rtu3.py 127.0.0.1 10.0.2.22 103 503 &')
         #controller.cmd(sys.executable + ' controller.py &')
         #s1.cmd(sys.executable + ' physical_process.py &')
         # SPHINX_SWAT_TUTORIAL RUN)

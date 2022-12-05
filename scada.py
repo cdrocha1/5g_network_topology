@@ -48,6 +48,7 @@ class SCADAServer(SCADAServer):
         port2 = 503
         while True:
             try:
+            	#listens for process from RTU and health from edge server
                 sockhealth.bind(('10.0.2.21',port))
                 sockprocess.bind(('', port2))
                 
@@ -66,7 +67,7 @@ class SCADAServer(SCADAServer):
                 message, addr = sockhealth.recvfrom(1024)
                 print(f"Health data received from {addr}: {message.decode()}")
                 sockhealth.sendto(message, ('', 504))
-                # sockhealth.sendto(message,('10.211.55.3',103))
+                
                 message2, addr2 = sockprocess.recvfrom(1024)
                 print(f"Process data received from {addr2}: {message2.decode()}")
                 sockprocess.sendto(message2, ('',505))
@@ -75,8 +76,8 @@ class SCADAServer(SCADAServer):
                 # if (message and message2):
                 #     sockhealth.sendto(b"Health data received by SCADA", addr)
                 #     sockprocess.sendto(b"Process data received by SCADA", addr2)
-                if (message2):
-                        sockprocess.sendto(b"Process data received by SCADA", addr2)
+                #if (message2):
+                        #sockprocess.sendto(b"Process data received by SCADA", addr2)
                 
                  
         except KeyboardInterrupt:
