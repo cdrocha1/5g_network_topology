@@ -57,9 +57,9 @@ class SwatPLC3(PLC):
         #sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         #sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         health_data_options = [
-            "HEALTH - temp sensor: working as expected", "HEALTH - temp sensor: Needs maintanence"]
+            "HEALTH - volume sensor: working as expected", "HEALTH - volume sensor: Needs maintanence"]
 
-        temp = 45
+        volume = 45
         try:
             #print("UDP sending health data on Port:", port)
             #print("UDP sending process data on Port: ", port2)
@@ -69,13 +69,13 @@ class SwatPLC3(PLC):
             # sock_plc.settimeout(5)
             while True:
 
-                if(temp >= 0 and temp < 999):
+                if(volume >= 0 and volume < 999):
                     health_data = health_data_options[0]
                 else:
                     health_data = health_data_options[1]
 
-                temp += random.randint(-5, 10)
-                process_data = "PROCESS - Temp in Celcius: " + str(temp)
+                volume += random.randint(0, 10)
+                process_data = "PROCESS - Volume: " + str(volume) + " gallons"
 
                 # print("Health data for server: ")
                 # msg = input('')

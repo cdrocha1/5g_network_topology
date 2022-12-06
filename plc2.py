@@ -31,7 +31,7 @@ class SwatPLC2(PLC):
     def main_loop(self):
         """plc2 main loop.
 
-            - read flow level sensors #2
+            - pressure sensors #2
             - update interal enip server
         """
 
@@ -59,9 +59,9 @@ class SwatPLC2(PLC):
         #sockhealth = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         #sockprocess = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         health_data_options = [
-            "HEALTH - temp sensor: working as expected", "HEALTH - temp sensor: Needs maintanence"]
+            "HEALTH - pressure sensor: working as expected", "HEALTH - pressure sensor: Needs maintanence"]
 
-        temp = 45
+        pressure = 555
         try:
             #print("UDP sending health data on Port:", port)
             #print("UDP sending process data on Port: ", port2)
@@ -71,13 +71,13 @@ class SwatPLC2(PLC):
             # sock_plc.settimeout(5)
             while True:
 
-                if(temp >= 0 and temp < 999):
+                if(pressure >= 0 and pressure < 999):
                     health_data = health_data_options[0]
                 else:
                     health_data = health_data_options[1]
 
-                temp += random.randint(-5, 10)
-                process_data = "PROCESS - Temp in Celcius: " + str(temp)
+                pressure += random.randint(-5, 10)
+                process_data = "PROCESS - Tank pressure: " + str(pressure) + " psi"
 
                 # print("Health data for server: ")
                 # msg = input('')
